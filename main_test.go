@@ -8,9 +8,9 @@ func TestMain(m *testing.T) {
 		m.Errorf("Expected 'HelloWorld', got '%s'", noSpace)
 	}
 
-	positiveSum := []struct{
+	positiveSum := []struct {
 		numbers []int
-		want int
+		want    int
 	}{
 		{[]int{1, 2, 3, 4, 5}, 15},
 		{[]int{1, -2, 3, 4, 5}, 13},
@@ -22,6 +22,22 @@ func TestMain(m *testing.T) {
 		got := PositiveSum(v.numbers)
 		if got != v.want {
 			m.Errorf("Expected %d, got %d", v.want, got)
+		}
+	}
+
+	repeatStr := []struct {
+		repeat       int
+		str, wantStr string
+	}{
+		{0, "", ""},
+		{4, "a", "aaaa"},
+		{3, "hello ", "hello hello hello "},
+		{2, "abc", "abcabc"},
+	}
+	for _, v := range repeatStr {
+		got := RepeatStr(v.repeat, v.str)
+		if got != v.wantStr {
+			m.Errorf("Expected %s, got %s", v.wantStr, got)
 		}
 	}
 }

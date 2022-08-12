@@ -91,10 +91,15 @@ func NoSpace(word string) string {
 }
 
 func PositiveSum(numbers []int) (sum int) {
-	for i := 0; i < len(numbers); i++{
-		if numbers[i] > 0{
+	for i := 0; i < len(numbers); i++ {
+		if numbers[i] > 0 {
 			sum += numbers[i]
 		}
 	}
+	return
+}
+
+func RepeatStr(repetitions int, value string) (res string) {
+	res = strings.Repeat(value, repetitions)
 	return
 }
